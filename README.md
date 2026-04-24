@@ -5,7 +5,7 @@
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.32+-FF4B4B?style=flat&logo=streamlit&logoColor=white)
 ![SHAP](https://img.shields.io/badge/SHAP-Explainable_AI-00B4D8?style=flat)
 ![Hackathon](https://img.shields.io/badge/Hackathon-Innovators_Team-8338EC?style=flat)
-![Deploymwnt]([https://img.shields.io/badge/Streamlit-1.32+-FF4B4B?](https://predication-maintence-for-industrial-machines-fheubeyctpnryru7.streamlit.app/)style=flat&logo=streamlit&logoColor=white)
+![Deployment]([https://img.shields.io/badge/Streamlit-1.32+-FF4B4B?](https://predication-maintence-for-industrial-machines-fheubeyctpnryru7.streamlit.app/)style=flat&logoColor=white)
 
 > 🏆 **Hackathon Project** · **Payal Gaikwad** & **Varsha Lahane** · Innovators Team
 
