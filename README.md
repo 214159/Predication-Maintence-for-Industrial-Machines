@@ -5,7 +5,6 @@
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.32+-FF4B4B?style=flat&logo=streamlit&logoColor=white)
 ![SHAP](https://img.shields.io/badge/SHAP-Explainable_AI-00B4D8?style=flat)
 ![Hackathon](https://img.shields.io/badge/Hackathon-Innovators_Team-8338EC?style=flat)
-[![Streamlit Deployment](https://img.shields.io/badge/Render-Live_Demo-00d1b2?style=for-the-badge&logo=Deploy&logoColor=white)]([https://employee-attrition-risk-analysis-and-lyd4.onrender.com/](https://predication-maintence-for-industrial-machines-fheubeyctpnryru7.streamlit.app/))
 
 > 🏆 **Hackathon Project** · **Payal Gaikwad** & **Varsha Lahane** · Innovators Team
 
@@ -217,7 +216,7 @@ shap>=0.44.0
 - 📡 **Edge Deployment** — ONNX export for Raspberry Pi / Jetson Nano
 
 ---
-
+Streamlit Deployment- https://predication-maintence-for-industrial-machines-fheubeyctpnryru7.streamlit.app/
 ## 👩‍💻 Team
 
 **Innovators Team** — Hackathon Project
