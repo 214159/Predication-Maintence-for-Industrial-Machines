@@ -15,7 +15,6 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;600&display=swap');
@@ -155,8 +154,6 @@ def load_models():
 models = load_models()
 models_loaded = all(k in models for k in ["classifier", "regressor", "encoder"])
 
-
-
 with st.sidebar:
     st.markdown('<div class="hero-title">⚙️ PredictMaint</div>', unsafe_allow_html=True)
     st.markdown('<div class="hero-sub">Industrial AI · v1.0</div>', unsafe_allow_html=True)
@@ -218,7 +215,6 @@ st.markdown("")
 sample = np.array([[type_H, type_L, type_M, air_temp, proc_temp, rot_speed, torque, tool_wear]])
 feature_names = ['Type_H', 'Type_L', 'Type_M', 'Air_T (K)', 'Proc_T (K)', 'RPM', 'Torque (Nm)', 'Tool Wear (min)']
 
-
 st.markdown('<div class="section-header">Live Sensor Panel</div>', unsafe_allow_html=True)
 
 col1, col2, col3, col4, col5 = st.columns(5)
@@ -237,12 +233,12 @@ for col, (label, val, color) in zip([col1, col2, col3, col4, col5], sensor_data)
             <div class="status-value {color}">{val}</div>
         </div>
         """, unsafe_allow_html=True)
+
 st.markdown('<div class="section-header">Diagnostic Results</div>', unsafe_allow_html=True)
 
 if not models_loaded:
     st.info("📦 Load your trained model files (`.pkl`) alongside this app to enable predictions. See the sidebar for instructions.")
 else:
-    # Always compute predictions so the dashboard is live
     clf = models["classifier"]
     reg = models["regressor"]
     le  = models["encoder"]
@@ -280,6 +276,7 @@ else:
         """, unsafe_allow_html=True)
 
     with res_col3:
+        if is_failure and rul is not None:
             failure_time = datetime.now() + timedelta(minutes=float(rul))
             ftime_display = failure_time.strftime("%H:%M")
             fdate_display = failure_time.strftime("%d %b %Y")
@@ -390,7 +387,6 @@ else:
         )
         st.plotly_chart(fig_imp, use_container_width=True)
 
-    
     with st.expander("🔬 Raw Input Vector"):
         input_df = pd.DataFrame(sample, columns=feature_names)
         st.dataframe(input_df.style.format("{:.2f}"), use_container_width=True)
