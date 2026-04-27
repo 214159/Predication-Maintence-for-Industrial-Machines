@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 from pathlib import Path
 from datetime import datetime, timedelta
-─
+
 st.set_page_config(
     page_title="PredictiveMaint AI",
     page_icon="⚙️",
@@ -138,7 +138,7 @@ label, .stSlider label { color: var(--text) !important; }
 }
 </style>
 """, unsafe_allow_html=True)
-─
+
 @st.cache_resource
 def load_models():
     """Try to load pre-trained models from disk."""
@@ -209,7 +209,7 @@ with st.sidebar:
 
     st.markdown("")
     run_btn = st.button("🔍  Run Diagnostics", use_container_width=True, type="primary")
-─
+
 st.markdown('<div class="hero-title">Industrial Machine Diagnostics</div>', unsafe_allow_html=True)
 st.markdown('<div class="hero-sub">Predictive Maintenance · Real-time Failure Classification & RUL Estimation</div>', unsafe_allow_html=True)
 st.markdown("")
@@ -218,7 +218,7 @@ st.markdown("")
 sample = np.array([[type_H, type_L, type_M, air_temp, proc_temp, rot_speed, torque, tool_wear]])
 feature_names = ['Type_H', 'Type_L', 'Type_M', 'Air_T (K)', 'Proc_T (K)', 'RPM', 'Torque (Nm)', 'Tool Wear (min)']
 
-──
+
 st.markdown('<div class="section-header">Live Sensor Panel</div>', unsafe_allow_html=True)
 
 col1, col2, col3, col4, col5 = st.columns(5)
@@ -254,7 +254,6 @@ else:
     is_failure = failure_name != "No_Failure"
     rul = reg.predict(sample)[0] if is_failure else None
 
-    # ── Status row ──
     res_col1, res_col2, res_col3, res_col4 = st.columns(4)
 
     card_cls = "status-failure" if is_failure else "status-healthy"
@@ -281,7 +280,6 @@ else:
         """, unsafe_allow_html=True)
 
     with res_col3:
-        #         if rul is not None:
             failure_time = datetime.now() + timedelta(minutes=float(rul))
             ftime_display = failure_time.strftime("%H:%M")
             fdate_display = failure_time.strftime("%d %b %Y")
@@ -310,7 +308,7 @@ else:
         """, unsafe_allow_html=True)
 
     st.markdown("")
- ──
+ 
     chart_col1, chart_col2 = st.columns([1, 1])
 
     with chart_col1:
@@ -366,7 +364,7 @@ else:
             height=280,
         )
         st.plotly_chart(fig_gauge, use_container_width=True)
- ──
+
     if hasattr(clf, 'feature_importances_'):
         st.markdown('<div class="section-header">Feature Importance</div>', unsafe_allow_html=True)
         importances = clf.feature_importances_
@@ -392,12 +390,11 @@ else:
         )
         st.plotly_chart(fig_imp, use_container_width=True)
 
-     ──
+    
     with st.expander("🔬 Raw Input Vector"):
         input_df = pd.DataFrame(sample, columns=feature_names)
         st.dataframe(input_df.style.format("{:.2f}"), use_container_width=True)
 
-───
 st.markdown("---")
 st.markdown(
     '<span style="font-family:Space Mono,monospace;font-size:0.7rem;color:#64748b;">'
